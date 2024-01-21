@@ -1,11 +1,12 @@
 import "./App.css";
-import Counter from "./Counter"
+import Counter from "./Counter";
 import axios from "axios";
 
 const options = {
   method: "GET",
-  url: "https://api.yelp.com/v3/businesses/search",
+  url: "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search",
   params: { term: "delis", latitude: "37.786882", longitude: "-122.399972" },
+  withCredentials: false,
   headers: {
     Accept: "application/json",
     Authorization:
@@ -13,18 +14,25 @@ const options = {
   },
 };
 
+let result = null;
+
 try {
   const { data } = await axios.request(options);
+  result = data;
   console.log(data);
 } catch (error) {
   console.error(error);
 }
 
 function App() {
+  console.log(result)
   return (
     <>
       <h1>Test Run FoodTinder</h1>
       <Counter />
+      <Counter initCount={5} />
+      <h2>{result.total}</h2>
+      <h3>{result.businesses[12].rating}</h3>
     </>
   );
 }
