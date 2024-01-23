@@ -36,7 +36,7 @@ function App() {
       <div id="container">
         <Interested />
         <Form />
-        <Display />
+        <Display data={myData}/>
       </div>
     </>
   );

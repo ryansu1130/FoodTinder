@@ -13,12 +13,13 @@
 
 #businessDetails{
     display: flex;
+    flex-wrap: nowrap;
     font-size: 2rem;
     border-bottom: 3px solid #35A3A3;
 }
 
 #businessDetails span{
-    font-size: 2rem;
+    font-size: clamp(1rem, 2rem, 3rem);;
     font-weight: 500;
     margin-right: 1rem;
 }

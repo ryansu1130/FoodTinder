@@ -1,28 +1,49 @@
 import "./Display.css";
-export default function Display() {
+import { useState } from "react";
+export default function Display({ data }) {
   const leftArrow = "<-";
   const rightArrow = "->";
+  const [count, setCount] = useState(0);
+  const numBusinesses = data.businesses.length
+  const handleLikeClick = () => {
+    //if liked, then have a list and update it to interested
+    if(count + 1 < numBusinesses)
+      setCount(count + 1);
+    else
+      setCount(0)
+  };
+
+  const handlePassClick = () => {
+    if(count + 1 < numBusinesses)
+      setCount(count + 1);
+    else
+      setCount(0)
+  };
+
   return (
     <div id="displayContainer">
       <div id="imageContainer">
         <img
           id="restaurantCover"
-          src="https://s3-media3.fl.yelpcdn.com/bphoto/MKhp6BM0esexFcD6OOKaeQ/o.jpg"
+          src={data.businesses[count].image_url}
           alt="Image Not Found"
         />
       </div>
       <div id="businessDetails">
-        <span>Luc Lac</span>
-        <span>:</span>
-        <span>$$</span>
-        <span>:</span>
-        {/* <img src="" alt="Phone" /> */}
+        <span>{data.businesses[count].name}</span>
+        <span>•</span>
+        <span>{data.businesses[count].price}</span>
+        <span>•</span>
         <span>IMG</span>
-        <span>:</span>
-        <span>Vietnamese</span>
+        <span>•</span>
+        <span>{data.businesses[count].categories[0].title}</span>
       </div>
-      <button id="leftLikeBtn">{leftArrow} Like</button>
-      <button id="rightPassBtn">Pass {rightArrow}</button>
+      <button id="leftLikeBtn" onClick={handleLikeClick}>
+        {leftArrow} Like
+      </button>
+      <button id="rightPassBtn" onClick={handlePassClick}>
+        Pass {rightArrow}
+      </button>
     </div>
   );
 }
