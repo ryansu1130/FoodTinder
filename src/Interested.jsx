@@ -1,12 +1,13 @@
-import "./Interested.css"
-export default function Interested(){
-    return(
-        <div id="interestedContainer">
-            <h2>Interested</h2>
-            <ol>
-                <li>1. Pho Bar</li>
-                <li>2. Pho Oregon</li>
-            </ol>
-        </div>
-    )
+import "./Interested.css";
+export default function Interested({ likedBusinessArr }) {
+  return (
+    <div id="interestedContainer">
+      <h2>Interested</h2>
+      <ol>
+        {likedBusinessArr.map((value, idx) => {
+          return <li key={idx}>{idx+1}: {value}</li>;
+        })}
+      </ol>
+    </div>
+  );
 }

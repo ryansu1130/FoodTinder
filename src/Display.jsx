@@ -1,24 +1,8 @@
 import "./Display.css";
 import { useState } from "react";
-export default function Display({ data }) {
+export default function Display({ data, count, handleLikeClick, handlePassClick }) {
   const leftArrow = "<-";
   const rightArrow = "->";
-  const [count, setCount] = useState(0);
-  const numBusinesses = data.businesses.length
-  const handleLikeClick = () => {
-    //if liked, then have a list and update it to interested
-    if(count + 1 < numBusinesses)
-      setCount(count + 1);
-    else
-      setCount(0)
-  };
-
-  const handlePassClick = () => {
-    if(count + 1 < numBusinesses)
-      setCount(count + 1);
-    else
-      setCount(0)
-  };
 
   return (
     <div id="displayContainer">

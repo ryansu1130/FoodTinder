@@ -1,7 +1,8 @@
 import "./App.css";
+import { useState } from "react";
 import Counter from "./Counter";
 import axios from "axios";
-import myData from "./data.json"
+import myData from "./data.json";
 import Interested from "./Interested";
 import Form from "./Form";
 import About from "./About";
@@ -29,17 +30,38 @@ import Display from "./Display";
 //   console.error(error);
 // }
 
-function App() {
+export default function App() {
+  const [count, setCount] = useState(0);
+  const [likedBusinessArr, setlikedBusinessArr] = useState([])
+  const numBusinesses = myData.businesses.length;
+  const handleLikeClick = () => {
+    setlikedBusinessArr([...likedBusinessArr, myData.businesses[count].name])
+    console.log(likedBusinessArr)
+    //if liked, then have a list and update it to interested
+    if (count + 1 < numBusinesses) {
+      setCount(count + 1);
+    } else setCount(0);
+  };
+
+  const handlePassClick = () => {
+    if (count + 1 < numBusinesses) {
+      setCount(count + 1);
+    } else setCount(0);
+  };
+
   return (
     <>
       <h1 id="title">Food Tinder</h1>
       <div id="container">
-        <Interested />
+        <Interested likedBusinessArr={likedBusinessArr} />
         <Form />
-        <Display data={myData}/>
+        <Display
+          data={myData}
+          count={count}
+          handleLikeClick={handleLikeClick}
+          handlePassClick={handlePassClick}
+        />
       </div>
     </>
   );
 }
-
-export default App;
