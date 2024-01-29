@@ -11,10 +11,10 @@ import Display from "./Display";
 let myData = {
   businesses: [
     {
-      name: "Pho 39",
-      image_url:
-        "https://s3-media2.fl.yelpcdn.com/bphoto/XcoX7UFv0iVLs3TkmmDIMQ/o.jpg",
-      categories: [{ title: "Vietnamese" }],
+      name: "Enable CORS",
+      image_url: "https://simplelocalize.io/blog/what-is-cors.jpg",
+      url: "https://cors-anywhere.herokuapp.com/corsdemo",
+      categories: [{ title: "Read Direction" }],
     },
   ],
   total: 163,

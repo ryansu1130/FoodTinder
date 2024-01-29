@@ -25,6 +25,11 @@
     margin-right: 1rem;
 }
 
+span a{
+    font-size: 1.7vw;
+    color: white;
+    
+}
 /* user clamp function to control the font size  */
 #leftLikeBtn{
     width: 50%;
