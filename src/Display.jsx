@@ -8,9 +8,6 @@ export default function Display({
   handleLikeClick,
   handlePassClick,
 }) {
-  const leftArrow = "<-";
-  const rightArrow = "->";
-
   return (
     <div id="displayContainer">
       <div id="imageContainer">
@@ -33,19 +30,13 @@ export default function Display({
             : "No Price Data"}
         </span>
         <span>•</span>
-        <span>IMG</span>
+        <span>Rating: {data.businesses[count].rating}</span>
         <span>•</span>
         <span>{data.businesses[count].categories[0].title}</span>
       </div>
-      {/* <button id="leftLikeBtn" onClick={handleLikeClick}>
-        {leftArrow} Like */}
       <Button variant="outlined" id="leftLikeBtn" onClick={handleLikeClick}>
         Like
       </Button>
-      {/* </button> */}
-      {/* <button id="rightPassBtn" onClick={handlePassClick}>
-        Pass {rightArrow}
-      </button> */}
       <Button variant="outlined" id="rightPassBtn" onClick={handlePassClick}>
         Pass
       </Button>

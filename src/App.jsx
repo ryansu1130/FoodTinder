@@ -14,7 +14,7 @@ let myData = {
       name: "Enable CORS",
       image_url: "https://simplelocalize.io/blog/what-is-cors.jpg",
       url: "https://cors-anywhere.herokuapp.com/corsdemo",
-      categories: [{ title: "Read Direction" }],
+      categories: [{ title: "<- Click CORS Link" }],
     },
   ],
   total: 163,
