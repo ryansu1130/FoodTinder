@@ -1,5 +1,7 @@
 import "./Display.css";
 import { useState } from "react";
+import Button from '@mui/material/Button';
+
 export default function Display({ data, count, handleLikeClick, handlePassClick }) {
   const leftArrow = "<-";
   const rightArrow = "->";
@@ -16,18 +18,21 @@ export default function Display({ data, count, handleLikeClick, handlePassClick 
       <div id="businessDetails">
         <span>{data.businesses[count].name}</span>
         <span>•</span>
-        <span>{data.businesses[count].price}</span>
+        <span>{data.businesses[count].price ? data.businesses[count].price : "No Price Data"}</span>
         <span>•</span>
         <span>IMG</span>
         <span>•</span>
         <span>{data.businesses[count].categories[0].title}</span>
       </div>
-      <button id="leftLikeBtn" onClick={handleLikeClick}>
-        {leftArrow} Like
-      </button>
-      <button id="rightPassBtn" onClick={handlePassClick}>
+      {/* <button id="leftLikeBtn" onClick={handleLikeClick}>
+        {leftArrow} Like */}
+        <Button variant="outlined" id="leftLikeBtn" onClick={handleLikeClick}>Like</Button>
+      {/* </button> */}
+      {/* <button id="rightPassBtn" onClick={handlePassClick}>
         Pass {rightArrow}
-      </button>
+      </button> */}
+      <Button variant="outlined" id="rightPassBtn" onClick={handlePassClick}>Pass</Button>
+
     </div>
   );
 }

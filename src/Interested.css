@@ -6,11 +6,11 @@
 
 #interestedContainer h2{
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2.5vw;
 }
 
 #interestedContainer ol li{
     font-weight: 500;
-    font-size: 1.5rem;
+    font-size: 1.5vw;
     margin-top: 10px;
 }
