@@ -47,9 +47,6 @@ export default function Form({ newSearch }) {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        {/* <a target="blank" href="https://cors-anywhere.herokuapp.com/corsdemo">
-          Enable CORS Before Search
-        </a> */}
         <div className="spacer">
           <label htmlFor="term">Search A Delicacy</label>
           <input
@@ -82,11 +79,15 @@ export default function Form({ newSearch }) {
             placeholder="Portland,OR"
           />
         </div>
-        
+
         <button id="submitBtn" type="submit">
           Show Me Results
         </button>
-        <a id="corsTag" target="blank" href="https://cors-anywhere.herokuapp.com/corsdemo">
+        <a
+          id="corsTag"
+          target="blank"
+          href="https://cors-anywhere.herokuapp.com/corsdemo"
+        >
           Enable CORS Before Search
         </a>
         <About />

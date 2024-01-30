@@ -5,6 +5,15 @@ import Interested from "./Interested";
 import Form from "./Form";
 import Display from "./Display";
 
+// Items Left To Do
+// 1. fix interested filling up overflowing at 15-ish businesses
+// 2. Add a delete icon and a clear all on the interested section
+// 3. Not urgent: look into auto complete from yelp api on form section
+// 4. Fix Display section business details overflowing
+// 5. Animate buttons for form page and display page
+// 6. Enable mobile version using media queries
+
+
 //Init data on enable CORS
 let myData = {
   businesses: [
