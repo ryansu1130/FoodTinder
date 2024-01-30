@@ -86,7 +86,7 @@ export default function Form({ newSearch }) {
         <button id="submitBtn" type="submit">
           Show Me Results
         </button>
-        <a target="blank" href="https://cors-anywhere.herokuapp.com/corsdemo">
+        <a id="corsTag" target="blank" href="https://cors-anywhere.herokuapp.com/corsdemo">
           Enable CORS Before Search
         </a>
         <About />

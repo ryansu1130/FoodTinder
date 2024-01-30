@@ -41,3 +41,7 @@ input::placeholder{
     margin-top: 5rem;
     cursor: pointer;
 }
+
+#corsTag{
+    font-size: 1.35vw;
+}
