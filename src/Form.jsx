@@ -1,9 +1,11 @@
 import "./Form.css";
 import { useState } from "react";
 import About from "./About";
-export default function Form({ newSearch, setCount }) {
+export default function Form({ newSearch }) {
+  //keep track of the input form data
   const [formData, setFormData] = useState({ term: "", location: "" });
 
+  //middleware to handle page when submitted
   const handleSubmit = (e) => {
     e.preventDefault();
     if (formData.term === "" || formData.location === "") {
@@ -13,37 +15,48 @@ export default function Form({ newSearch, setCount }) {
     setFormData({ term: "", location: "" });
   };
 
+  //handle term input change
   const handleTermChange = (e) => {
     setFormData({ ...formData, term: e.target.value });
   };
 
+  //handle location input change
   const handleLocationChange = (e) => {
     setFormData({ ...formData, location: e.target.value });
   };
 
-  const validateTermInput = () => {
-    if (formData.term === "") {
-      
-      return false;
+  //check the user input, make suer it is not an empty input
+  //Note: the validation is simple, it can be imporved by also check using valid location
+  //One way to approach this si by using a npm pacakge that check if location is valid
+  const validateInput = (input) => {
+    if (input === "term") {
+      if (formData.term === "") {
+        return false;
+      }
+      return true;
     }
-    return true;
+    if (input === "location") {
+      if (formData.location === "") {
+        return false;
+      }
+      return true;
+    }
   };
 
-  const validateLocInput = () => {
-    if (formData.location === "") {
-      return false;
-    }
-    return true;
-  };
-
+  //JSX rendering the form section and about section of the page
   return (
     <>
       <form onSubmit={handleSubmit}>
+        {/* <a target="blank" href="https://cors-anywhere.herokuapp.com/corsdemo">
+          Enable CORS Before Search
+        </a> */}
         <div className="spacer">
           <label htmlFor="term">Search A Delicacy</label>
           <input
             style={{
-              border: validateTermInput() ? "2px solid green" : "2px solid red",
+              border: validateInput("term")
+                ? "2px solid green"
+                : "2px solid red",
             }}
             onChange={handleTermChange}
             value={formData.term}
@@ -57,7 +70,9 @@ export default function Form({ newSearch, setCount }) {
           <label htmlFor="location">Location</label>
           <input
             style={{
-              border: validateLocInput() ? "2px solid green" : "2px solid red",
+              border: validateInput("location")
+                ? "2px solid green"
+                : "2px solid red",
             }}
             onChange={handleLocationChange}
             value={formData.location}
@@ -67,9 +82,13 @@ export default function Form({ newSearch, setCount }) {
             placeholder="Portland,OR"
           />
         </div>
+        
         <button id="submitBtn" type="submit">
           Show Me Results
         </button>
+        <a target="blank" href="https://cors-anywhere.herokuapp.com/corsdemo">
+          Enable CORS Before Search
+        </a>
         <About />
       </form>
     </>

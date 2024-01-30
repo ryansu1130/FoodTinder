@@ -8,6 +8,7 @@ export default function Display({
   handleLikeClick,
   handlePassClick,
 }) {
+  //jsx rendering of the swiping section of the page
   return (
     <div id="displayContainer">
       <div id="imageContainer">
@@ -19,12 +20,15 @@ export default function Display({
       </div>
       <div id="businessDetails">
         <span>
+          {/* opens a new page that take user to YELP's main page of the
+          interested business */}
           <a target="blank" href={data.businesses[count].url}>
             {data.businesses[count].name}
           </a>
         </span>
         <span>•</span>
         <span>
+          {/* conditionally check if price data exist */}
           {data.businesses[count].price
             ? data.businesses[count].price
             : "No Price Data"}
@@ -34,6 +38,7 @@ export default function Display({
         <span>•</span>
         <span>{data.businesses[count].categories[0].title}</span>
       </div>
+      {/* MUI buttons */}
       <Button variant="outlined" id="leftLikeBtn" onClick={handleLikeClick}>
         Like
       </Button>

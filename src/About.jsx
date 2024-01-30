@@ -1,10 +1,11 @@
 import "./About.css"
 export default function About(){
+    //jsx rednering of the about section
     return(
         <div id="aboutContainer">
             <h3>Created By</h3>
             <h3>Ryan Su</h3>
-            <h4>A fun react project that helps you decide where to eat</h4>
+            <h4>Where Do You Want To Eat?</h4>
         </div>
     )
 }
