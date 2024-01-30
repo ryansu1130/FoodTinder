@@ -1,8 +1,10 @@
-# React + Vite
+# Food Tinder By Ryan Su
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A webpage that helps you decide on where to eat.
+- [@CORS](https://cors-anywhere.herokuapp.com/corsdemo) Enable CORS before making a search
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [@Food Tinder](https://ryansu1130.github.io/foodtinder/) is build with the Vite-React framework.
+The main technologies that are used are the following:
+- [@Vitejs](https://vitejs.dev/)
+- [@React](https://vitejs.dev/)
+- [@MUI](https://vitejs.dev/)
