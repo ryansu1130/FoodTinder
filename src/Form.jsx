@@ -2,15 +2,15 @@ import "./Form.css";
 import { useState } from "react";
 import About from "./About";
 export default function Form({ newSearch, setCount }) {
-  const [formData, setFormData] = useState({ term: null, location: null });
+  const [formData, setFormData] = useState({ term: "", location: "" });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(formData.term === null || formData.location === null){
-      return alert("Must Fill Out Form")
+    if (formData.term === "" || formData.location === "") {
+      return alert("Must Fill Out Delicacy And Location");
     }
     newSearch(formData.term, formData.location);
-    setCount(0)
+    setFormData({ term: "", location: "" });
   };
 
   const handleTermChange = (e) => {
@@ -21,13 +21,32 @@ export default function Form({ newSearch, setCount }) {
     setFormData({ ...formData, location: e.target.value });
   };
 
+  const validateTermInput = () => {
+    if (formData.term === "") {
+      
+      return false;
+    }
+    return true;
+  };
+
+  const validateLocInput = () => {
+    if (formData.location === "") {
+      return false;
+    }
+    return true;
+  };
+
   return (
     <>
       <form onSubmit={handleSubmit}>
         <div className="spacer">
           <label htmlFor="term">Search A Delicacy</label>
           <input
+            style={{
+              border: validateTermInput() ? "2px solid green" : "2px solid red",
+            }}
             onChange={handleTermChange}
+            value={formData.term}
             type="text"
             name="term"
             id="term"
@@ -37,7 +56,11 @@ export default function Form({ newSearch, setCount }) {
         <div className="spacer">
           <label htmlFor="location">Location</label>
           <input
+            style={{
+              border: validateLocInput() ? "2px solid green" : "2px solid red",
+            }}
             onChange={handleLocationChange}
+            value={formData.location}
             type="text"
             name="location"
             id="location"

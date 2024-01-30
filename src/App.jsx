@@ -27,10 +27,10 @@ export default function App() {
   let numBusinesses = myData.businesses.length;
 
   const handleLikeClick = () => {
-    setlikedBusinessArr([...likedBusinessArr, myData.businesses[count].name]);
     console.log(likedBusinessArr);
     if (count + 1 < numBusinesses) {
       setCount(count + 1);
+      setlikedBusinessArr([...likedBusinessArr, myData.businesses[count].name]);
     } else setCount(0);
   };
 
@@ -41,7 +41,6 @@ export default function App() {
   };
 
   async function newSearch(delicacy = "delis", location = "happy_valley,or") {
-    setCount(0);
     const options = {
       method: "GET",
       url: "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search",
@@ -60,6 +59,7 @@ export default function App() {
     } catch (error) {
       console.error(error);
     }
+    setCount(count + 1);
   }
 
   return (
