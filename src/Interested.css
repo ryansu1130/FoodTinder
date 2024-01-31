@@ -1,16 +1,29 @@
-#interestedContainer{
-    height: 100%;
-    width: 25%;
-    border-right: 3px solid black;
+#interestedContainer {
+  height: 100%;
+  width: 25%;
+  border-right: 3px solid black;
 }
 
-#interestedContainer h2{
-    text-align: center;
-    font-size: 2.5vw;
+#interestedContainer h2 {
+  text-align: center;
+  font-size: 2.5vw;
 }
 
-#interestedContainer ol li{
-    font-weight: 500;
-    font-size: 1.5vw;
-    margin-top: 10px;
+#interestedContainer ol li {
+  font-weight: 500;
+  font-size: 1.5vw;
+  margin-top: 10px;
+  text-wrap:balance;
+}
+
+#deleteIcon {
+  padding-right: 10px;
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+  border: none;
+}
+
+#deleteAll {
+    width: 100%;
 }

@@ -1,17 +1,17 @@
 import "./App.css";
 import { useState } from "react";
 import axios from "axios";
+import { v4 as UID } from 'uuid';
 import Interested from "./Interested";
 import Form from "./Form";
 import Display from "./Display";
 
 // Items Left To Do
-// 1. fix interested filling up overflowing at 15-ish businesses
-// 2. Add a delete icon and a clear all on the interested section
-// 3. Not urgent: look into auto complete from yelp api on form section
-// 4. Fix Display section business details overflowing
-// 5. Animate buttons for form page and display page
-// 6. Enable mobile version using media queries
+// 1. fix interested filling up overflowing at 15-ish businesses 5
+// 3. Not urgent: look into auto complete from yelp api on form section 4
+// 4. Fix Display section business details overflowing 2
+// 5. Animate buttons for form page and display page 3
+// 6. Enable mobile version using media queries 6
 
 
 //Init data on enable CORS
@@ -41,7 +41,7 @@ export default function App() {
     if (count + 1 < numBusinesses) {
       setCount(count + 1);
       //Save businesses to the inerested list
-      setlikedBusinessArr([...likedBusinessArr, myData.businesses[count].name]);
+      setlikedBusinessArr([...likedBusinessArr, {id: UID(), business:myData.businesses[count].name}]);
     } else setCount(0);
   };
 
@@ -74,8 +74,14 @@ export default function App() {
       myData = data;
       setCount(count + 1);
     } catch (error) {
-      alert("Try Again: " + error.message);
-      console.error(error.message);
+      
+      //special case to make remind user that CORS needs to be enable 
+      if(error.response.status === 403){
+        alert("Click Enable CORS Link To Enable");
+      }else{
+        alert("Try Again: " + error.message);
+      }
+      console.log(error.message)
     }
   }
 
@@ -84,7 +90,7 @@ export default function App() {
     <>
       <h1 id="title">Food Tinder</h1>
       <div id="container">
-        <Interested likedBusinessArr={likedBusinessArr} />
+        <Interested likedBusinessArr={likedBusinessArr} setlikedBusinessArr={setlikedBusinessArr} />
         <Form newSearch={newSearch} />
         <Display
           data={myData}
