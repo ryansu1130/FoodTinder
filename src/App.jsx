@@ -9,8 +9,6 @@ import Display from "./Display";
 // Items Left To Do
 // 1. fix interested filling up overflowing at 15-ish businesses 5
 // 3. Not urgent: look into auto complete from yelp api on form section 4
-// 4. Fix Display section business details overflowing 2
-// 5. Animate buttons for form page and display page 3
 // 6. Enable mobile version using media queries 6
 
 
