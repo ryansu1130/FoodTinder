@@ -2,6 +2,7 @@
   height: 100%;
   width: 25%;
   border-right: 3px solid black;
+  overflow: auto;
 }
 
 #interestedContainer h2 {
@@ -9,11 +10,25 @@
   font-size: 2.5vw;
 }
 
+#interestLink {
+  text-decoration: none;
+  color: #0073dd;
+}
+
+#interestedContainer ol li a {
+  font-size: 1.5vw;
+}
+
+#interestLink:hover{
+  color: black;
+  text-decoration: underline;
+}
+
 #interestedContainer ol li {
   font-weight: 500;
-  font-size: 1.5vw;
-  margin-top: 10px;
-  text-wrap:balance;
+  font-size: 1.6vw;
+  margin-top: 0px;
+  text-wrap: balance;
 }
 
 #deleteIcon {
@@ -25,5 +40,5 @@
 }
 
 #deleteAll {
-    width: 100%;
+  width: 100%;
 }

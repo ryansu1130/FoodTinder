@@ -18,11 +18,22 @@ export default function Interested({ likedBusinessArr, setlikedBusinessArr }) {
     <div id="interestedContainer">
       <h2>Interested</h2>
       <ol>
+        <Chip
+          id="deleteAll"
+          label="DELETE ALL"
+          onClick={handleDeleteAll}
+          onDelete={handleDeleteAll}
+          deleteIcon={<DeleteIcon />}
+          color="error"
+        />
         {/* create an order list based on the like businesses array */}
         {likedBusinessArr.map((value, idx) => {
           return (
             <li key={value.id}>
-              {idx + 1}: {value.business}
+              <a id="interestLink" href={value.url} target="_blank">
+                {idx + 1}: {value.business}{" "}
+              </a>
+
               <Chip
                 id="deleteIcon"
                 onDelete={() => handleOneDelete(value.id)}
@@ -33,14 +44,14 @@ export default function Interested({ likedBusinessArr, setlikedBusinessArr }) {
             </li>
           );
         })}
-        <Chip
+        {/* <Chip
           id="deleteAll"
           label="DELETE ALL"
           onClick={handleDeleteAll}
           onDelete={handleDeleteAll}
           deleteIcon={<DeleteIcon />}
           color="error"
-        />
+        /> */}
       </ol>
     </div>
   );

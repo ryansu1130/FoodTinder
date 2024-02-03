@@ -7,10 +7,10 @@ import Form from "./Form";
 import Display from "./Display";
 
 // Items Left To Do
-// 1. fix interested filling up overflowing at 15-ish businesses 5
-// 3. Not urgent: look into auto complete from yelp api on form section 4
-// 6. Enable mobile version using media queries 6
-
+// 4. Update Figma mockup 
+// 5. Publish Wesbite on portfolio
+// 6. add comment and polish code
+// 7. Have a new title icon
 
 //Init data on enable CORS
 let myData = {
@@ -39,7 +39,7 @@ export default function App() {
     if (count + 1 < numBusinesses) {
       setCount(count + 1);
       //Save businesses to the inerested list
-      setlikedBusinessArr([...likedBusinessArr, {id: UID(), business:myData.businesses[count].name}]);
+      setlikedBusinessArr([...likedBusinessArr, {id: UID(), business:myData.businesses[count].name, url:myData.businesses[count].url}]);
     } else setCount(0);
   };
 

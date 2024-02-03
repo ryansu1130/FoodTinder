@@ -4,7 +4,7 @@ import About from "./About";
 import axios from "axios";
 
 let auto = {
-  terms: [{ text: "Beef" },{ text: "Beef" },{ text: "Beef" }],
+  terms: [{ text: "Beef" },{ text: "Chicken" },{ text: "Seafood" }],
 };
 
 export default function Form({ newSearch }) {
@@ -40,7 +40,6 @@ export default function Form({ newSearch }) {
     try {
       const { data } = await axios.request(options);
       auto = data;
-      // setAutoData(auto);
     } catch (error) {
       console.log(error.message);
     }
@@ -48,10 +47,10 @@ export default function Form({ newSearch }) {
 
   //handle term input change
   const handleTermChange = (e) => {
-    autoComplete(e.target.value);
-    setAutoData([auto.terms[0].text, auto.terms[1].text, auto.terms[2].text])
-    console.log(autoData)
-    
+    //Yelp limits 500 calls/day, might not be a good idea because each entry is a call
+    // autoComplete(e.target.value);
+    // setAutoData([auto.terms[0].text, auto.terms[1].text, auto.terms[2].text])   
+
     setFormData({ ...formData, term: e.target.value });
   };
 
@@ -129,7 +128,7 @@ export default function Form({ newSearch }) {
           target="blank"
           href="https://cors-anywhere.herokuapp.com/corsdemo"
         >
-          Enable CORS Before Search
+          Enable CORS Once Before Search
         </a>
         <About />
       </form>
