@@ -6,12 +6,6 @@ import Interested from "./Interested";
 import Form from "./Form";
 import Display from "./Display";
 
-// Items Left To Do
-// 4. Update Figma mockup 
-// 5. Publish Wesbite on portfolio
-// 6. add comment and polish code
-// 7. Have a new title icon
-
 //Init data on enable CORS
 let myData = {
   businesses: [
