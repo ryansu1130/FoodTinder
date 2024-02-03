@@ -48,8 +48,8 @@ export default function Form({ newSearch }) {
   //handle term input change
   const handleTermChange = (e) => {
     //Yelp limits 500 calls/day, might not be a good idea because each entry is a call
-    autoComplete(e.target.value);
-    setAutoData([auto.terms[0].text, auto.terms[1].text, auto.terms[2].text])   
+    // autoComplete(e.target.value);
+    // setAutoData([auto.terms[0].text, auto.terms[1].text, auto.terms[2].text])   
 
     setFormData({ ...formData, term: e.target.value });
   };
